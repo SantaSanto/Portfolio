@@ -48,6 +48,7 @@ export class ViewAsset extends React.Component {
 		return (
 			<Page>
 				<NavBar title="Asset" menuLabel="Action">
+					<MenuItem href={`/portfolio/${asset.folioId}`}>Portfolio</MenuItem>
 					<MenuItem href={`/newTxn/${asset.id}`}>Add Transaction</MenuItem>
 					<MenuItem href={`/editAsset/${asset.id}`}>Edit Asset</MenuItem>
 					<MenuItem href={`/deleteAsset/${asset.id}`}>Delete Asset</MenuItem>

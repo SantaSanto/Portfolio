@@ -60,15 +60,16 @@ public class TransactionService implements ITransactionService<Transaction> {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED)
     public void delete(final Long id) {
         logger.info("TransactionService::deleteByAssetId - Txn:{0}", id);
 
         final Transaction txn = txnRepository.findById(id)
             .orElseThrow(NotFoundException::new);
         final Asset asset = txn.getAsset();
-        updateAmount(asset);
-
         txnRepository.deleteById(id);
+
+        updateAmount(asset);
         assetService.update(asset);
     }
 

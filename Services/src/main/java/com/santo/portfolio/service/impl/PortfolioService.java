@@ -74,10 +74,10 @@ public class PortfolioService implements IPortfolioService<Portfolio> {
         allocations.stream()
             .forEach(allocation -> {
                 final Double nav = navMap.get(allocation.getType());
-                final Double wgt = Double.valueOf(decimalFormat.format(nav/totalNav));
+                final Double wgt = round((nav/totalNav)*100);
 
                 final Double balWgt = weightMap.get(allocation.getType());
-                final Double  balNav = (totalNav * balWgt) - nav;
+                final Double  balNav = round((totalNav * balWgt) - nav);
 
                 allocation.setNav(nav);
                 allocation.setWeight(wgt);
@@ -89,7 +89,7 @@ public class PortfolioService implements IPortfolioService<Portfolio> {
 
         final Allocation totalAllocation = createAllocation("TOTAL");
         totalAllocation.setNav(totalNav);
-        totalAllocation.setWeight(1d);
+        totalAllocation.setWeight(100d);
         allocations.add(totalAllocation);
 
         return allocations;
@@ -99,5 +99,9 @@ public class PortfolioService implements IPortfolioService<Portfolio> {
         final Allocation allocation = new Allocation();
         allocation.setType(type);
         return allocation;
+    }
+
+    private Double round(final Double value) {
+        return Double.valueOf(decimalFormat.format(value));
     }
 }

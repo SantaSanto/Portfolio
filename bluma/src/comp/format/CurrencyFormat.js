@@ -1,14 +1,18 @@
 import React from 'react';
 import NumberFormat from 'react-number-format'
 
-export const Currency = ({ value }) => {
+const style = {
+    whiteSpace: 'nowrap'
+}
+
+export const Currency = ({ value, scale = 2 }) => {
     const className = (value < 0) ? "has-text-danger" : "has-text-success"
     return (
-        <span className={className} style={{ whiteSpace: 'nowrap'}}>
-            <NumberFormat value={value} displayType={'text'}
-                decimalScale={2} fixedDecimalScale={true}
-                thousandSeparator={true}
-                prefix={'₹ '} />
-        </span>
+        <NumberFormat
+            className={className} style={style}
+            value={value} displayType={'text'}
+            decimalScale={scale} fixedDecimalScale={true}
+            thousandSeparator={true}
+            prefix={'₹ '} />
     )
 }

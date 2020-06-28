@@ -25,7 +25,7 @@ const RebalancedRow = (allocation) => {
     return (
         <tr>
             <th>{allocation.type}</th>
-            <td className="has-text-right"><Currency value={allocation.balanced} /></td>
+            <td className="has-text-right"><Currency value={allocation.balanced} scale={0} /></td>
         </tr>
     )
 }

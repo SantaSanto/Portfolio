@@ -1,5 +1,6 @@
 import React from 'react';
 import {Currency} from '../format/CurrencyFormat'
+import {PercentageFormat} from '../format/NumFormat'
 
 export const Allocation = ({ allocations }) => {
     return (
@@ -22,8 +23,10 @@ const AllocationRow = (allocation) => {
     return (
         <tr>
             <th>{allocation.type}</th>
-            <td className="has-text-right"><Currency value={allocation.nav} /></td>
-            <td className="has-text-right">{allocation.weight}</td>
+            <td className="has-text-right"><Currency value={allocation.nav} scale={0} /></td>
+            <td className="has-text-right">
+                <PercentageFormat value={allocation.weight} scale={0}/><
+            /td>
         </tr>
     )
 }

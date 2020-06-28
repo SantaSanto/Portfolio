@@ -23,9 +23,9 @@ const AssetListItem = ({asset}) => {
                         </li>
                     </ul>                   
                 </div>
-                <div className="column is-4 has-text-right" style={{margin: 'auto'}}>
+                <div className="column is-4 has-text-right">
                     <ul>
-                        <li className="has-text-right"><Currency value={nav} /></li>
+                        <li><Currency value={nav} /></li>
                     </ul>
                 </div>
             </div>

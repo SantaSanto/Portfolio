@@ -48,6 +48,7 @@ export class ViewPortfolio extends React.Component {
         return (
             <Page >                 
                  <NavBar title="Portfolio" menuLabel="Action">
+                     <MenuItem href="/">Home</MenuItem>
                      <MenuItem href={`/newAsset/${portfolio.id}`}>Add Asset</MenuItem>
                  </NavBar>
 
