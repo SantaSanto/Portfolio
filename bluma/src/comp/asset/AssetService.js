@@ -27,10 +27,10 @@ export const deleteAsset = (assetId) => {
 }
 
 
-export const filterAsset = (asset, filterTxt) => {    
-	if (asset.name.toUpperCase().includes(filterTxt)) return asset;
-	if (asset.type.toUpperCase().includes(filterTxt)) return asset;
-	if (asset.institution.toUpperCase().includes(filterTxt)) return asset;
-	if (asset.holder.toUpperCase().includes(filterTxt)) return asset;
-	if (asset.startDate.toUpperCase().includes(filterTxt)) return asset;
+export const filterAsset = (asset, filterTxt) => {  
+	const {name, type, institution} = asset
+	const filterTextUC = filterTxt.toUpperCase();  
+	if (name.toUpperCase().includes(filterTextUC)) return asset;
+	if (type.toUpperCase().includes(filterTextUC)) return asset;
+	if (institution.toUpperCase().includes(filterTextUC)) return asset;
 }

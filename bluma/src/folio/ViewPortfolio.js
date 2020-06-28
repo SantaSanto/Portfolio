@@ -29,6 +29,11 @@ export class ViewPortfolio extends React.Component {
         };
     }
 
+    filterChange = (e) => {
+        const {value} = e.target
+        this.setState({filterText: value})
+    }
+
     
     componentDidMount() {
         const { portfolio } = this.state
@@ -43,7 +48,11 @@ export class ViewPortfolio extends React.Component {
 
     render() {
 
-        let { portfolio, assets, allocations } = this.state;
+        const { portfolio, assets, allocations, filterText} = this.state;
+
+        const filterAssets = assets.filter((asset) => {
+            return filterAsset(asset, filterText)
+        });
 
         return (
             <Page >                 
@@ -61,8 +70,8 @@ export class ViewPortfolio extends React.Component {
                 </PageContent>
 
                 <PageContent title="Current Assets">
-                    <FilterInputText />
-                    <AssetList assets={assets} />
+                    <FilterInputText onChange={this.filterChange}/>
+                    <AssetList assets={filterAssets} />
                 </PageContent>
             </Page>
         )
