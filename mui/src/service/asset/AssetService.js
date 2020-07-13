@@ -1,4 +1,4 @@
-import { create, findByFolioId, findById} from './AssetDAO'
+import { assetDao } from '../../dao/AssetDao'
 
 export const ASSET_TYPE = [
     { key: "Equity", value: "Equity" },
@@ -32,19 +32,19 @@ export const createAsset = async (asset) => {
         _id: assetId,
         ...asset
     }
-    return await create(model);
+    return await assetDao.put(model);
 }
 
 export const updateAsset = async (asset) => {
-    create(asset);
+    assetDao.put(asset);
 }
 
 export const getAssetsByFolioId = async (folioId) => {
-    const assets =  await findByFolioId(folioId);
+    const assets =  await assetDao.findByFolioId(folioId);
     return assets?.docs;
 }
 
 export const getAsset = async (assetId) => {
-    const asset =  await findById(assetId);
+    const asset =  await assetDao.findById(assetId);
     return (asset?.docs)?.[0];
 }
