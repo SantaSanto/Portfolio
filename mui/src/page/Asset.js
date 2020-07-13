@@ -44,12 +44,12 @@ export class Asset extends React.Component {
     }
 
     async componentDidMount() {
-        const { asset } = this.state
+        const { _id: assetId } = this.state.asset
 
-        const _asset = await assetService.get(asset._id)
+        const _asset = await assetService.get(assetId)
         this.setState({ asset: _asset })
 
-        const _txns = await txnService.getTxnByAssetId(asset._id)
+        const _txns = await txnService.getByAssetId(assetId)
         this.setState({ txns: _txns })
     }
 

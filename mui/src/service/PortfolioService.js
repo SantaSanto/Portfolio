@@ -1,26 +1,24 @@
-import { create, readAll, findById} from './PortfolioDAO'
+import { AbstractService } from './AbstractService'
+import { folioDao } from '../dao/PortfolioDao'
 
-export const validate = async(folio) => {
-    const errors = {};
-    return errors;
-}
 
-export const createFolio = async (folio) => {
-
-    const folioId = Date.now().toString();
-    const model = {
-        _id: folioId,
-        ...folio
+class PortfolioService extends AbstractService {
+    constructor(dao) {
+        super(dao)
+        console.log('PortfolioService::constructor')
     }
-    return await create(model);
+
+    async validate(folio) {
+        const errors = {};
+        return errors;
+    }    
+
+    async getAll() {
+        const folios =  await folioDao.findAll();
+        return folios?.docs;
+    }
 }
 
-export const getFolios = async () => {
-    const folios =  await readAll();
-    return folios?.docs;
-}
-
-export const getFolio = async (folioId) => {
-    const folio = await findById(folioId)
-    return (folio?.docs)?.[0];
-}
+const instance = new PortfolioService(folioDao)
+Object.freeze(instance);
+export const folioService = instance;

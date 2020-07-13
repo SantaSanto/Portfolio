@@ -4,7 +4,7 @@ import { Page } from '../components/Page'
 import { Section } from '../components/Page/Section'
 import { PortfolioList } from '../components/PortfolioList'
 
-import { getFolios } from '../service/PortfolioService'
+import { folioService } from '../service/PortfolioService'
 
 export class HomePage extends React.Component {
 
@@ -24,11 +24,9 @@ export class HomePage extends React.Component {
         ]
     }
 
-    componentDidMount() {
-
-        getFolios().then(f => {
-            this.setState({ folios: f })
-        })       
+    async componentDidMount() {
+        const _folios = await folioService.getAll()
+        this.setState({ folios: _folios })         
     }    
 
     render() {

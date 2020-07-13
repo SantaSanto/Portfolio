@@ -9,7 +9,7 @@ import { Page } from '../components/Page'
 import { Section } from '../components/Page/Section'
 import { TextInput } from '../components/Form'
 
-import { validate, createFolio } from '../service/PortfolioService'
+import { folioService } from '../service/PortfolioService'
 
 
 
@@ -32,7 +32,7 @@ export class FolioForm extends React.Component {
     }
 
     onSubmit = async (folio) => {
-        const result = createFolio(folio)
+        const result = folioService.create(folio)
         if(result) {
             this.props.history.push('/')
         }
@@ -45,7 +45,7 @@ export class FolioForm extends React.Component {
                 <Section title="Create Portfolio">
                     <br />
                     <Form onSubmit={this.onSubmit}
-                        validateOnBlur={true} validate={validate}
+                        validateOnBlur={true} validate={folioService.validate}
                         initialValues={this.state.folio}
                         render={(props) => (
                             <form onSubmit={props.handleSubmit} noValidate>

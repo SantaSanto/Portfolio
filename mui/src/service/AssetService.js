@@ -13,7 +13,7 @@ class AssetService extends AbstractService {
         return errors;
     }    
 
-    async getAssetsByFolioId(folioId) {
+    async getByFolioId(folioId) {
         const assets =  await assetDao.findByFolioId(folioId);
         return assets?.docs;
     }

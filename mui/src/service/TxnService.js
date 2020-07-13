@@ -23,7 +23,7 @@ class TxnService extends AbstractService {
         return isCreated
     }
 
-    async getTxnByAssetId(assetId) {     
+    async getByAssetId(assetId) {     
         const txns =  await txnDao.findByAssetId(assetId);
         return txns?.docs
     }

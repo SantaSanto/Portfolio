@@ -8,7 +8,7 @@ import { Page } from '../components/Page'
 import { Section } from '../components/Page/Section'
 import { AssetList } from '../components/AssetList'
 
-import { getFolio } from '../service/PortfolioService'
+import { folioService } from '../service/PortfolioService'
 import { assetService } from '../service/AssetService'
 
 export class Folio extends React.Component {
@@ -39,12 +39,12 @@ export class Folio extends React.Component {
     }
 
     async componentDidMount() {
-        const { folio } = this.state
+        const { _id: folioId } = this.state.folio
 
-        const _folio = await getFolio(folio._id)
+        const _folio = await folioService.get(folioId)
         this.setState({ folio: _folio })
 
-        const _assets = await assetService.getAssetsByFolioId(folio._id)
+        const _assets = await assetService.getByFolioId(folioId)
         this.setState({ assets: _assets })
     }
 
