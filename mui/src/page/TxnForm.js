@@ -32,7 +32,7 @@ export class TxnForm extends React.Component {
     }
 
     onSubmit = async (txn) => {
-        const result = txnService.createTxn(txn)
+        const result = txnService.create(txn)
         if(result) {
             this.props.history.push(this.iconProps.url)
         }

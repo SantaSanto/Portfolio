@@ -14,7 +14,7 @@ import { Page } from '../components/Page'
 import { Section } from '../components/Page/Section'
 import { TxnList } from '../components/TxnList'
 
-import { getAsset } from '../service/asset/AssetService'
+import { assetService } from '../service/AssetService'
 import { txnService } from '../service/TxnService'
 
 export class Asset extends React.Component {
@@ -46,7 +46,7 @@ export class Asset extends React.Component {
     async componentDidMount() {
         const { asset } = this.state
 
-        const _asset = await getAsset(asset._id)
+        const _asset = await assetService.get(asset._id)
         this.setState({ asset: _asset })
 
         const _txns = await txnService.getTxnByAssetId(asset._id)

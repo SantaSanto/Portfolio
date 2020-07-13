@@ -19,5 +19,14 @@ export class AbstractService {
         }        
         return this.getDao().put(_model);
     }
+
+    async get(modelId) {
+        const model =  await this.getDao().findById(modelId);
+        return (model?.docs)?.[0];
+    }
+
+    async update(model) {
+        return this.getDao().put(model);    
+    }
 }
 

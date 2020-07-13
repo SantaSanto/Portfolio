@@ -9,8 +9,8 @@ import { Page } from '../components/Page'
 import { Section } from '../components/Page/Section'
 import { TextInput, SelectInput } from '../components/Form'
 
-import { ASSET_TYPE, ASSET_INSTITUTION, ASSET_HOLDER } from '../service/asset/AssetService'
-import { validate, createAsset } from '../service/asset/AssetService'
+import { ASSET_TYPE, ASSET_INSTITUTION, ASSET_HOLDER } from '../service/AssetService'
+import { assetService } from '../service/AssetService'
 
 export class AssetForm extends React.Component {
 
@@ -31,7 +31,7 @@ export class AssetForm extends React.Component {
     }
 
     onSubmit = async (asset) => {
-        const result = createAsset(asset)
+        const result = assetService.create(asset)
         if(result) {
             this.props.history.push(this.iconProps.url)
         }
@@ -44,7 +44,7 @@ export class AssetForm extends React.Component {
             <Page title='Asset Form' iconProps={iconProps}>
                 <Section title="Add Asset">
                     <Form onSubmit={this.onSubmit}
-                        validateOnBlur={true} validate={validate}
+                        validateOnBlur={true} validate={assetService.validate}
                         initialValues={ asset }
                         render={(props) => (
                             <form onSubmit={props.handleSubmit} noValidate>

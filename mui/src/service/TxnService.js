@@ -1,11 +1,11 @@
 import { AbstractService } from './AbstractService'
 import { txnDao } from '../dao/TxnDao'
-import { getAsset, updateAsset } from './asset/AssetService'
+import { assetService } from './AssetService'
 
 class TxnService extends AbstractService {
 
-    constructor() {
-        super(txnDao)
+    constructor(dao) {
+        super(dao)
         console.log('TxnService::constructor')
     }
 
@@ -14,7 +14,7 @@ class TxnService extends AbstractService {
         return errors;
     }    
 
-    async createTxn(txn) {
+    async create(txn) {
         let isCreated = await super.create(txn);
     
         if(isCreated) {
@@ -30,17 +30,16 @@ class TxnService extends AbstractService {
 
     async calcAndUpdateAsset(assetId) {
         const txns = await this.getTxnByAssetId(assetId) 
-        const asset = await getAsset(assetId)
-        console.log(asset)
+        const asset = await assetService.get(assetId)
+
         asset.deposit = txns.reduce(sumDeposit, 0)
         asset.credit  = txns.reduce(sumCredit,  0)
         asset.nav    = reduceNAV(txns)
-        console.log(asset)
-        updateAsset(asset)        
+        assetService.update(asset)        
     }
 }
 
-const instance = new TxnService()
+const instance = new TxnService(txnDao)
 Object.freeze(instance);
 export const txnService = instance;
 

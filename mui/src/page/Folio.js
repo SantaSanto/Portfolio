@@ -9,7 +9,7 @@ import { Section } from '../components/Page/Section'
 import { AssetList } from '../components/AssetList'
 
 import { getFolio } from '../service/PortfolioService'
-import { getAssetsByFolioId } from '../service/asset/AssetService'
+import { assetService } from '../service/AssetService'
 
 export class Folio extends React.Component {
 
@@ -44,7 +44,7 @@ export class Folio extends React.Component {
         const _folio = await getFolio(folio._id)
         this.setState({ folio: _folio })
 
-        const _assets = await getAssetsByFolioId(folio._id)
+        const _assets = await assetService.getAssetsByFolioId(folio._id)
         this.setState({ assets: _assets })
     }
 
