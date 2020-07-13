@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/static/js/main.c955f063.chunk.js",
-    "main.js.map": "/static/js/main.c955f063.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.306bd4b9.js",
-    "runtime-main.js.map": "/static/js/runtime-main.306bd4b9.js.map",
-    "static/js/2.5a91c1c2.chunk.js": "/static/js/2.5a91c1c2.chunk.js",
-    "static/js/2.5a91c1c2.chunk.js.map": "/static/js/2.5a91c1c2.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.7e8fa4b5dd12e1a9be3e823c12ef3e31.js": "/precache-manifest.7e8fa4b5dd12e1a9be3e823c12ef3e31.js",
-    "service-worker.js": "/service-worker.js",
-    "static/js/2.5a91c1c2.chunk.js.LICENSE.txt": "/static/js/2.5a91c1c2.chunk.js.LICENSE.txt"
+    "main.js": "/SantaSanto/Portfolio/static/js/main.8866de96.chunk.js",
+    "main.js.map": "/SantaSanto/Portfolio/static/js/main.8866de96.chunk.js.map",
+    "runtime-main.js": "/SantaSanto/Portfolio/static/js/runtime-main.0022055e.js",
+    "runtime-main.js.map": "/SantaSanto/Portfolio/static/js/runtime-main.0022055e.js.map",
+    "static/js/2.5a91c1c2.chunk.js": "/SantaSanto/Portfolio/static/js/2.5a91c1c2.chunk.js",
+    "static/js/2.5a91c1c2.chunk.js.map": "/SantaSanto/Portfolio/static/js/2.5a91c1c2.chunk.js.map",
+    "index.html": "/SantaSanto/Portfolio/index.html",
+    "precache-manifest.151b1ba884ca90aa7a079c62c4b772ce.js": "/SantaSanto/Portfolio/precache-manifest.151b1ba884ca90aa7a079c62c4b772ce.js",
+    "service-worker.js": "/SantaSanto/Portfolio/service-worker.js",
+    "static/js/2.5a91c1c2.chunk.js.LICENSE.txt": "/SantaSanto/Portfolio/static/js/2.5a91c1c2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.306bd4b9.js",
+    "static/js/runtime-main.0022055e.js",
     "static/js/2.5a91c1c2.chunk.js",
-    "static/js/main.c955f063.chunk.js"
+    "static/js/main.8866de96.chunk.js"
   ]
 }

@@ -45,8 +45,7 @@ const PortfolioListItem = ({folio}) => {
     const {id, name} = folio
     return (
         <a className="panel-block" href={`/portfolio/${id}`}>
-            <PortfolioIcon />
-            <ul>
+             <ul>
                 <li><b>{name}</b></li>
             </ul>           
         </a>
